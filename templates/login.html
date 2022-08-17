@@ -1,0 +1,37 @@
+{% include "header.html" %}
+
+<!-- Main -->
+<section class="login">
+    <h1 class="login-title"> Login </h1>
+    <form class="login-form row" method="POST" action="/login">
+
+        <div class="form-field col-lg-7 mb-4">
+            <label for="login-email">Email address</label>
+            <input class="form-control" type="text" id="login-email" name="login-email" placeholder="Enter your Email"
+                   required>
+        </div>
+
+        <div class="form-field col-lg-7 mb-5">
+            <label for="login-password">Password</label>
+            <input type="password" class="form-control" id="login-password" name="login-password"
+                   placeholder="Enter your Password" required>
+        </div>
+
+
+        <div class="form-field col-lg-12 mb-auto">
+            <input class="primary" type="submit" value="Let Me In">
+        </div>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% for category, message in messages %}
+    {% if category == 'error' %}
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ message }}
+        {% endif %}
+        {% endfor %}
+
+        {% endwith %}
+</section>
+{% include "footer.html" %}

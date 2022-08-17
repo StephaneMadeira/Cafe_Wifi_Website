@@ -1,0 +1,67 @@
+{% include "header.html" %}
+
+    <!-- Main -->
+    <section class="add-cafe">
+        <h1 class="add-title"> Add a New Cafe</h1>
+        <form class="add-cafe-form row" method="POST" action="/add">
+
+            <div class="form-field mb-4 col-lg-6">
+                <label for="name">Cafe Name</label>
+                <input class="form-control" id="name" name="name" required type="text" value="">
+            </div>
+
+            <div class="form-field mb-4 col-lg-6">
+                <label for="map_url">Google Maps URL</label>
+                <input class="form-control" id="map_url" name="map_url" required type="text" value="">
+            </div>
+
+            <div class="form-field mb-5 col-lg-6">
+                <label for="img_url">Image URL</label>
+                <input class="form-control" id="img_url" name="img_url" required type="text" value="">
+            </div>
+
+            <div class="form-field mb-5 col-lg-6">
+                <label for="location">Cafe Location</label>
+                <input class="form-control" id="location" name="location" required type="text" value="">
+            </div>
+
+            <div class="form-check mb-4 col-lg-6 col-md-12 mb-4">
+                <input class="form-check-input " id="has_sockets" name="has_sockets" type="checkbox" value=1>
+                <label class="form-check-label" for="has_sockets">Sockets Available?</label>
+
+            </div>
+
+            <div class="form-check mb-4 col-lg-6 col-md-12 mb-4">
+                <input class="form-check-input" id="has_toilet" name="has_toilet" type="checkbox" value=1>
+                <label class="form-check-label" for="has_toilet">Toilets Available?</label>
+            </div>
+
+            <div class="form-check mb-5 col-lg-6 col-md-12 mb-4">
+                <input class="form-check-input" id="has_wifi" name="has_wifi" type="checkbox" value=1>
+                <label class="form-check-label" for="has_wifi">Wifi Available?</label>
+            </div>
+
+            <div class="form-check mb-5 col-lg-6 col-md-12 mb-4">
+                <input class="form-check-input" id="can_take_calls" name="can_take_calls" type="checkbox" value=1>
+                <label class="form-check-label" for="can_take_calls">Call taking Available?</label>
+            </div>
+
+
+            <div class="form-field col-lg-6 mb-4">
+                <label for="seats">How many seats?</label>
+                <input class="form-range" id="seats" max="50" name="seats" oninput="this.nextElementSibling.value = this.value" required
+                       step="5" type="range" value="0">
+                <output for="seats" id="selected-seats">0</output>
+            </div>
+
+            <div class="form-field mb-5"><label for="coffee_price">Coffee Price</label>
+                <input class="form-control" id="coffee_price" name="coffee_price" type="text" value="">
+            </div>
+
+            <div class="form-field col-lg-12 mb-auto text-center">
+                <input class="primary" type="submit" value="Submit">
+            </div>
+        </form>
+    </section>
+
+{% include "footer.html" %}

@@ -1,0 +1,60 @@
+{% include "header.html" %}
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <h1>{{ cafe.name }} </h1>
+
+            <div id="container">
+                <div id="banner"><img src="{{ cafe.img_url }}" id="myImage"></div>
+
+                <div id="text-cafe">
+                    <p>{% if cafe.has_sockets == 1: %}
+                        🔌 Have Power Sockets
+                        {% else %}
+                        ✘ Don't have Power Sockets </p>
+                    {% endif %}
+                    <p> {% if cafe.has_wifi == 1: %}
+                        💪 Have WIFI
+                        {% else %}
+                        ✘ Don't have WIFI </p>
+                    {% endif %}
+                    <p> {% if cafe.has_toilet == 1: %}
+                        🚻 Have Toilets
+                        {% else %}
+                        ✘ Don't have Toilets </p>
+                    {% endif %}
+                    <p> {% if cafe.can_take_calls == 1: %}
+                        📱 You can take calls there
+                        {% else %}
+                        ✘ You can't take calls there </p>
+                    {% endif %}
+                    <p>☕ {{ cafe.coffee_price }}</p>
+                    <p class="cafe-delete">
+                        {% if current_user.id == 1 %}
+                        <a class="delete-button" href="{{url_for('delete_cafe', cafe_id=cafe.id) }}">Delete Cafe</a>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+
+            <p class="cafe-description">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis
+                dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet.
+                Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia
+                malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien
+                risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit
+                tristique.</p>
+
+
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="1000" height="350" id="gmap_canvas"
+                            src="https://maps.google.com/maps?q={{cafe.name}},{{cafe.location}}&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0"
+                            marginwidth="0"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% include "footer.html" %}

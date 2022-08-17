@@ -1,0 +1,31 @@
+{% include "header.html" %}
+
+    <!-- Main -->
+    <section class="register">
+        <h1 class="register-title"> Register </h1>
+        <form class="register-form row" method="POST" action="/register">
+
+            <div class="form-field col-lg-7 mb-4">
+                <label for="register-name">Name</label>
+                <input class="form-control" type="text" id="register-name" name="register-name" placeholder="Enter your Name" required>
+            </div>
+
+
+            <div class="form-field col-lg-7 mb-4">
+                <label for="register-email">Email address</label>
+                <input class="form-control" type="text" id="register-email" name="register-email" placeholder="Enter your Email" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+            <div class="form-field col-lg-7 mb-5">
+                <label for="register-password">Password</label>
+                <input type= "password" class="form-control"  id="register-password" name="register-password" placeholder="Enter your Password" required>
+            </div>
+
+
+            <div class="form-field col-lg-12 mb-auto">
+                <input class="primary" type="submit" value="Register">
+            </div>
+        </form>
+    </section>
+{% include "footer.html" %}

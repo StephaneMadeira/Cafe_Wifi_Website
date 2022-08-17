@@ -1,0 +1,43 @@
+{% include "header.html" %}
+
+
+<!-- Main -->
+<div id="main">
+    <div class="inner">
+        <header>
+            <h1 class="index-title">This is Coffee Place</h1>
+            <p>In here you can check the best spot's, so you can work remote but always plugged in.</p>
+        </header>
+        <section class="tiles">
+            {% for cafe in cafes %}
+
+            <article class="style1">
+									<span class="image">
+                                        <img src="{{ cafe.img_url }}"/>
+                                    </span>
+                <a href="{{ url_for('show_cafe', cafe_id=cafe.id) }}">
+
+                    <h2>{{cafe.name}}</h2>
+                    <div class="content">
+                        <br>
+                        <p>{% if cafe.has_sockets == 1: %}
+                            🔌 Have Power Sockets
+                            {% else %}
+                            ✘ Don't have Power Sockets
+                            {% endif %}
+                            {% if cafe.has_wifi == 1: %}
+                            💪 Have WIFI
+                            {% else %}
+                            ✘ Don't have WIFI
+                            {% endif %} </p>
+                        ☕ {{ cafe.coffee_price }}
+                    </div>
+
+                </a>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+</div>
+
+{% include "footer.html" %}
